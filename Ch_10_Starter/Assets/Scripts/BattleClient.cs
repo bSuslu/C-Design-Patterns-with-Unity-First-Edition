@@ -1,17 +1,23 @@
-using System.Collections;
-using System.Collections.Generic;
+using System;
 using UnityEngine;
 
-[RequireComponent(typeof(Manager))]
-public class BattleClient : MonoBehaviour
+namespace TurnBaseRPG
 {
-    void Start()
+    [RequireComponent(typeof(Manager))]
+    public class BattleClient : MonoBehaviour
     {
+        private BattleStateMachine _stateMachine;
+        
+        private void Start()
+        {
+            _stateMachine = GetComponent<BattleStateMachine>();
+            
+        }
 
-    }
-
-    void Update()
-    {
-
+        private void Update()
+        {
+            _stateMachine.CheckState();
+            _stateMachine.HandleInput();
+        }
     }
 }

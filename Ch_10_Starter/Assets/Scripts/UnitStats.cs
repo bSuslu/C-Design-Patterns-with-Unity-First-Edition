@@ -1,30 +1,31 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class UnitStats : MonoBehaviour
+namespace TurnBaseRPG
 {
-    public int Health;
-    private Renderer _renderer;
-
-    void Start()
+    public class UnitStats : MonoBehaviour
     {
-        _renderer = this.GetComponent<Renderer>();
-    }
+        public int Health;
+        private Renderer _renderer;
 
-    public bool TakeDamage(int value)
-    {
-        Health -= value;
-        return Health == 0;
-    }
+        void Start()
+        {
+            _renderer = this.GetComponent<Renderer>();
+        }
 
-    public void Heal()
-    {
-        Health++;
-    }
+        public bool TakeDamage(int value)
+        {
+            Health -= value;
+            return Health == 0;
+        }
 
-    public void ChangeColor(Color newColor)
-    {
-        _renderer.material.SetColor("_Color", newColor);
+        public void Heal()
+        {
+            Health++;
+        }
+
+        public void ChangeColor(Color newColor)
+        {
+            _renderer.material.SetColor("_Color", newColor);
+        }
     }
 }
